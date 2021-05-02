@@ -95,6 +95,13 @@ client.connect(err => {
 
   })
 
+  app.get("/allVolenters", (req, res) => {
+    VNcollection.find({})
+      .toArray((err, documents) => {
+        res.send(documents);
+      })
+  })
+
 
   app.delete('/delete/:id', (req, res) => {
     VNcollection.deleteOne({_id: ObjectId(req.params.id) })
